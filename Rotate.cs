@@ -2,27 +2,24 @@ using UnityEngine;
 
 public class Rotate : MonoBehaviour
 {
-    float minspeed = 1;
-    float maxspeed;
+    float _minspeed;
+    float _maxspeed;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        _minspeed = 1;
+        _maxspeed = 10;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        if (minspeed <= 1000)
+        if (_minspeed <= _maxspeed)
         {
-            minspeed++;
-            if (minspeed <= maxspeed)
-            {
-                minspeed = maxspeed;
-            }
+            _minspeed++;
+            
         }
-        gameObject.transform.Rotate(0, 0, minspeed);
+        Debug.Log(_minspeed);
+        gameObject.transform.Rotate(0, 0, _minspeed);
         
     }
 }
